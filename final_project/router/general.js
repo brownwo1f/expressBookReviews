@@ -74,7 +74,7 @@ function getFromISBN(isbn) {
 public_users.get("/isbn/:isbn", function (req, res) {
   const isbn = req.params.isbn;
   getFromISBN(isbn).then(
-    (bk) => res.send(JSON.stringify(bk, null, 4)),
+    (book) => res.send(JSON.stringify(book)),
     (error) => res.send(error)
   );
 });
@@ -101,9 +101,7 @@ function getFromAuthor(author) {
 }
 public_users.get("/author/:author", function (req, res) {
   const author = req.params.author;
-  getFromAuthor(author).then((result) =>
-    res.send(JSON.stringify(result, null, 4))
-  );
+  getFromAuthor(author).then((book) => res.send(JSON.stringify(book)));
 });
 
 // Get all books based on title
@@ -128,9 +126,7 @@ function getFromTitle(title) {
 }
 public_users.get("/title/:title", function (req, res) {
   const title = req.params.title;
-  getFromTitle(title).then((result) =>
-    res.send(JSON.stringify(result, null, 4))
-  );
+  getFromTitle(title).then((book) => res.send(JSON.stringify(book)));
 });
 
 //  Get book review
